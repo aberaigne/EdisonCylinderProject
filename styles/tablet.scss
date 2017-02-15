@@ -1,4 +1,69 @@
 @media only screen and (min-width: 651px) and (max-width: 999em){
 
-// End Of Tablet
+// ///////////
+// Section
+// ///////////
+section{
+  width: 100%;
+ header{
+   position: absolute;
+   top: 0;
+   width: 50px;
+   height: 100%;
+   ul{
+     padding-top: 10px;
+     li{
+       i{
+         left: 35%;
+         top: 50%;
+       }//End of I
+     }//End of LI
+   }//End of UL
+ }//End of Header
+}//End Of Section
+
+// //////////
+// Footer
+// //////////
+
+.footerButtonContainers{
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  right: 0;
+  i{
+    position: absolute;
+
+    &:nth-child(1){
+      top: 10%;
+      left: 35%;
+    }
+    &:nth-child(2){
+      top: 35%;
+      left: 35%;
+    }
+    &:nth-child(3){
+      top: 65%;
+      left: 35%;
+    }
+    &:nth-child(4){
+      top: 85%;
+      left: 35%;
+    }
+
+  }
 }
+
+footer{
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  right: 0;
+}
+
+// ////////////
+// End Of Tablet
+// ////////////
+}// Don't type below this

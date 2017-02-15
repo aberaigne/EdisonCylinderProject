@@ -1,13 +1,30 @@
 // Get Screen Sizes
 var screenHeight = $(window).height();
+var screenWidth = $(window).width();
 
-$('section').height(screenHeight - 50);
-$('section main').height(screenHeight - 100);
-// $('.footerButtonContainers i').css('top', screenHeight - 35 + 'px');
-$('.footerButtonContainers i').css('top', '15px');
+$(window).resize(function(){
+  screenHeight = $(window).height();
+  screenWidth = $(window).width();
+
+  if(screenWidth <= 650){
+    $('section').height(screenHeight - 50);
+    $('section main').height(screenHeight - 100);
+    $('section').width(screenWidth);
+    $('.footerButtonContainers i').css('top', '15px');
+  }else{
+    $('section').height(screenHeight);//Leave in temporarily until filled in with content;
+    $('section').width(screenWidth - 50);
+    $('.footerButtonContainers i').removeAttr('style');
+    console.log(screenWidth);
+  }
+});
+
+
 
 // Get selected section
 $('.navButton').click(function(){
+
+  // console.log('Clicked!');
 
   // Create blank variable for selected section and get icon position
   var selectedSection;
@@ -45,7 +62,11 @@ $('.navButton').click(function(){
       break;
   }
 
+  // Will need to put in logic that determines how wide the screen is
+
   // Add styles to container so it remains stationary
+  // This is not handled by CSS because the broswer cannot handle two levels of hidden overflow
+  // It also locks the container in place so that scrolling down can not occur while screen changes.
   $('#container').height(screenHeight - 50);
   $('#container').css('position','absolute');
   $('#container').css('overflow','hidden');
@@ -67,7 +88,7 @@ $('.navButton').click(function(){
     // Remove container restrictions
     $('#container').removeAttr('style');
 
-    // Reset Section Height;
+    // Reset Section Height
     $('section').height(screenHeight - 50);
     $('section main').height(screenHeight - 100);
 
@@ -76,23 +97,11 @@ $('.navButton').click(function(){
       left: '50%'
     },500);
 
-
-
-  })
-
-  // Move Navigation Button
-  // $(this).animate({
-  //   top: 10
-  // },500,function(){
-  //   $(this).css('display','none');
-  //
-  // });
-
-
+  });
 
 });//End of get selected sections
 
-// Function For Changing Footer Buttons
+// Function For Changing footer
 var changeActiveFooter = function(){
   $('.tempActive').animate({
     opacity: 0
@@ -101,9 +110,36 @@ var changeActiveFooter = function(){
     $('.tempActive').removeClass('tempActive');
   })
 
-  // Increase Active Footer's opacity
+
   $('.activeFooter').css('display','block');
   $('.activeFooter').animate({
     opacity: 1
   }, 500)
 };
+
+// ////////
+// Angular
+// ////////
+var cylinderApp = angular.module('cylinderApp', []);
+
+// Services for HTTP Requests
+cylinderApp.service('cylinderData', ['$http', function($http){
+  this.getCylinderData = function(){
+    return $http.get('https://edisoncylindertestdb.firebaseio.com/cylinders.json')
+  }
+}])
+
+// Controller for App
+cylinderApp.controller('cylinderAppCtrl', ['$scope','cylinderData', function($scope, cylinderData){
+
+  // Variables
+  $scope.returnedCylinderData;
+
+  cylinderData.getCylinderData().then(function(data){
+    $scope.returnedCylinderData = data.data;
+
+    console.log($scope.returnedCylinderData);
+  });
+
+
+}]);//End Of controller
