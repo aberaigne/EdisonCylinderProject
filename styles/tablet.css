@@ -1,4 +1,12 @@
 @media only screen and (min-width: 651px) and (max-width: 999em) {
+  .active {
+    z-index: -1; }
+
+  .inactive {
+    top: 0;
+    display: none;
+    z-index: 1; }
+
   section {
     width: 100%; }
     section header {
@@ -11,13 +19,16 @@
         section header ul li i {
           left: 35%;
           top: 50%; }
+    section main {
+      margin-left: 50px; }
 
   .footerButtonContainers {
     position: absolute;
     top: 0;
     width: 50px;
     height: 100%;
-    right: 0; }
+    right: 0;
+    z-index: 11; }
     .footerButtonContainers i {
       position: absolute; }
       .footerButtonContainers i:nth-child(1) {
@@ -38,6 +49,95 @@
     top: 0;
     width: 50px;
     height: 100%;
-    right: 0; } }
+    right: 0;
+    z-index: 10; }
+
+  #librarySection main .ng-scope {
+    width: 150px; }
+  #librarySection main .top {
+    display: flex;
+    justify-content: space-between; }
+    #librarySection main .top .banner {
+      width: 47%;
+      height: auto; }
+      #librarySection main .top .banner img {
+        width: 100%;
+        height: auto; }
+    #librarySection main .top .search {
+      display: inline-block;
+      width: 35%; }
+      #librarySection main .top .search span {
+        position: relative;
+        top: 10%; }
+        #librarySection main .top .search span input {
+          width: 60%;
+          margin-bottom: 0px; }
+      #librarySection main .top .search #advancedSearch {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        background-color: #c5e86c;
+        z-index: 10; }
+        #librarySection main .top .search #advancedSearch select {
+          width: 50%;
+          display: inline-block; }
+  #librarySection main .libGrid .shadeBack {
+    width: 150px; }
+
+  #informationSection {
+    background: white; }
+    #informationSection .header {
+      display: flex;
+      justify-content: space-between; }
+      #informationSection .header__banner {
+        width: 60%;
+        height: auto; }
+        #informationSection .header__banner img {
+          width: 100%;
+          height: auto; }
+      #informationSection .header__search {
+        display: block;
+        width: 35%;
+        background: #3E693F;
+        position: relative; }
+        #informationSection .header__search input {
+          font-size: 1.3em;
+          border: none;
+          border-bottom: 2px solid white;
+          background: none;
+          padding-bottom: 5px;
+          position: absolute;
+          left: 25%;
+          bottom: 40%;
+          width: 55%; }
+    #informationSection h1 {
+      font-size: 35px;
+      padding: 0 40px;
+      margin-top: 30px;
+      margin-bottom: 50px; }
+    #informationSection iframe {
+      width: 80%;
+      height: 350px !important;
+      display: block;
+      margin: 0 auto; }
+    #informationSection p {
+      line-height: 1.3em;
+      margin: 50px 0;
+      padding: 0 40px; }
+    #informationSection .row {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin: 0 auto; }
+      #informationSection .row .row__img {
+        margin-bottom: 20px;
+        width: 30%;
+        height: auto; }
+        #informationSection .row .row__img img {
+          width: 100%;
+          height: auto;
+          display: block; }
+    #informationSection .row:last-child .row__img {
+      margin-bottom: 0px; } }
 
 /*# sourceMappingURL=tablet.css.map */

@@ -3,9 +3,45 @@
 // //////////
 // Variables
 // //////////
-$header-font: 'Roboto', sans-serif;
+// $header-font: 'Roboto', sans-serif;
 $body-font: 'Nunito Sans', sans-serif;
 $alternative-font: 'Rubik', sans-serif;
+$header-font: Arial;
+$standard-font: Helvetica;
+
+  // UVU Color Palette Variables     https://www.uvu.edu/marketing/docs/branding_guides/uvu_web_style_guide_logos.pdf page 7
+  $uvuPrime: #275D38; // UVU Green
+  // Black
+  // White
+  $uvuGrey: #8e8c89; // Primary Grey
+
+    // Complementary Colors
+      //Green
+      $pan348: #00843d; // Green
+      $pan7738: #4ba23f; // Green
+      $pan368: #78be20; // Light Green
+      $pan374: #c5e86c; // Cool Green
+
+      //Orange
+      $pan7483: #275d38; // Dark Red
+      $pan7625: #e1523d; // Peachish
+      $pan717: #d45d00; // Orange
+      $pan7549: #ffb500; // Yellow
+      $pan120: #fbdb65; // Cool Yellow
+
+      //Blue
+      $pan5275: #595478; // Purple
+      $pan639: #0095c8; // Sky Blue
+      $pan3262: #00bfb3; // Tealish
+      $pan564: #86c8bc; // Cool Blue
+      $pan544: #bdd6e6; // Coolest Blue
+
+      //Grey
+      $pan405: #696158; // Grey
+      $pan8: #8c8279; // Warm Grey, Similar to UVU Grey
+      $pan6: #a7a8aa; // Cool Grey
+      $pan2: #d0d0ce; // Coolest Grey
+
 
 // /////////
 // Active/Inactive Classes
@@ -25,12 +61,46 @@ $alternative-font: 'Rubik', sans-serif;
   width: 100%;
 }
 
+.banner{
+  height: 80px;
+  background-image: url('../img/bannerImage.png');
+  background-position: right;
+  background-repeat: no-repeat;
+  padding: 10px 0 0 10px;
+  font-family: $standard-font;
+  color: white;
+  img{
+    width: 90px;
+    position: relative;
+    z-index: 1;
+  }
+  h3{
+    margin-top: 5px;
+    position: relative;
+    z-index: 1;
+  }
+  svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .6
+  }
+  .bannerBar:nth-of-type(2){
+    margin-left: 160px;
+  }
+  .bannerBar:nth-of-type(3){
+    margin-left: 190px;
+  }
+  .bannerBar:nth-of-type(4){
+    margin-left: 220px;
+  }
+}
+
 // /////////
 // Sections (Pages)
 // /////////
 section{
   width: 100%;
-  background-color: red;
   position: absolute;
   top: 0;
 
@@ -45,6 +115,7 @@ section{
         i{
           position: absolute;
           left: 50%;
+          font-size: 1.2em !important;
         }//End of I
       }//End of LI
     }//End of UL
@@ -74,7 +145,7 @@ section{
     position: absolute;
     color: white;
     z-index: 10;
-
+    font-size: 1.2em;
     &:nth-child(1){
       left: 10%;
     }
@@ -102,11 +173,135 @@ footer{
 
 }//End of Footer
 
+// //////////////
+// Home Page/Landing Page Section
+// //////////////
+#homeSection{
+  background-color: white;
+
+  #homeContainer{
+    width: 100%;
+
+    #cylinderOfTheDay{
+      width: 100%;
+      height: 70px;
+      background-color: grey;
+      color: white;
+      font-family: $standard-font;
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+
+      img{
+        margin: 5px 0 0 20px;
+        width: 60px;
+        height: 60px;
+        background-color: red;
+      }
+      i{
+        font-size: 3em;
+        position: relative;
+        text-align: center;
+        margin: 10px 0 0 30px;
+      }
+      h2{
+        margin: 25px 20px 0 0;
+      }
+    }
+
+    #indicators{
+      position: absolute;
+      top: 50%;
+      color: white;
+      // width: 100%;
+      i{
+        position: absolute;
+        z-index: 10;
+        font-size: 1.3em;
+        &:nth-child(1){
+          left: 10px;
+
+        }
+        &:nth-child(2){
+          // right: 10px;
+        }
+      }
+
+    }//End of indicators
+
+    #homeSlider{
+      width: 100%;
+      position: absolute;
+      font-family: $standard-font;
+      color: white;
+      margin-bottom: 0;
+
+      // Main Content (Slider)
+      div{
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: 110%;
+        background-position: bottom;
+        h2{
+          font-size: 1.6em;
+          font-family: Helvetica;
+          font-weight: bold;
+          margin: 20px 0 20px 0;
+          padding: 0 10px;
+        }
+        p{
+          padding: 0 10px;
+          margin-bottom: 10px;
+        }
+        h2,p{
+          position: relative;
+          z-index: 1;
+        }
+        .backColor{
+          max-width: 100%;
+          position: absolute;
+          top: 0;
+        }
+      }//End of Divs in Slider
+
+      // Sliders
+      #libraryLink{
+        background-image: url('../img/cover1.png');
+        .backColor{
+          background: -webkit-linear-gradient(top, rgba(255,0,0,1) 0%,rgba(255,255,255,0) 100%);
+        }
+      }//End of Library Link
+      #historyLink{
+        background-image: url('../img/cover2.png');
+        .backColor{
+          background: -webkit-linear-gradient(top, rgba(0,25,255,1) 0%,rgba(255,255,255,0) 100%);
+        }
+      }
+      #randomLink{
+        background-image: url('../img/cover3.png');
+        .backColor{
+          background: -webkit-linear-gradient(top, rgba(40,120,0,1) 0%,rgba(255,255,255,0) 100%);
+        }
+      }
+
+      // Slick Carousel Dots
+      .slick-dots{
+        position: absolute;
+        bottom: 10px;
+
+      }
+
+    }//End of Home Slider
+
+  }//End of Home Container
+}//End of Home Section
+
 // /////////////
 // Library Section
 // /////////////
 
 #librarySection{
+  background-color: white;
 
   main{
 
@@ -118,8 +313,188 @@ footer{
     h3{
       font-family: $alternative-font;
     }
+
+        // styling the library grid
+
+    .libGrid{
+      text-align: center;
+    }
+
+    .overPlay{
+       width: 300px;
+       padding: 10px;
+       float: left;
+     }
+
+    .ng-scope {
+      display: inline-block;
+      width: 40%;
+      height: 80px;
+      margin: 3px;
+      padding: 2px;
+    }
+
+  .top{
+    // .banner{
+    //   width: 100%;
+    //   height: auto;
+    //   img{
+    //     width: 100%;
+    //     height: auto;
+    //   }
+    // } Will delete after aproval
+
+    .search{
+      display: inline-block;
+      width: 100%;
+      position: relative;
+      background: $uvuPrime;
+      text-align: center;
+      margin-top: 5px;
+      p{
+        font-size: 1.3em;
+        border: none;
+        border-bottom: 2px solid white;
+        color: white;
+        background: none;
+        padding-bottom: 5px;
+        padding-top: 25%;
+        // position: absolute;
+        // left: 25%;
+        // bottom: 40%;
+        // width: 55%;
+      }
+      span{
+        input{
+          background: none;
+          border: none;
+          border-bottom: 2px solid white;
+          width: 35%;
+          color: white;
+          padding-top: 8px;
+          margin-top: 8px;
+          margin-bottom: 16px;
+        }
+        select{
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    .menu-item {
+      position: relative;
+      display: inline-block;
+    }
+
+    .sub-menu {
+      display: none;
+      position: inherit;
+      background-color: $pan374;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 16px;
+      z-index: 1;
+
+      .menu-item{
+        padding-bottom: 10px;
+      }
+    }
+
+    .menu-item:hover .sub-menu {
+      display: block;
+      max-width: 20px;
+    }
+  } // .top
+
+.overlay {
+    background-color: $uvuGrey;
+    bottom:0;
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    right:0;
+    top:0;
+    z-index: 1;
+
+}
+.square{position:relative;}
+
+.shadeBack{
+  position: absolute;
+  margin-top: -47px;
+  background-color: black;
+  opacity: 0.7;
+  width: 40%;
+  z-index: 10;
+          h2, h3 {
+          padding: 3px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: white;
+        }
+}
+
+
   }//End of Main
 }//End of Library Section
+
+// /////////////
+// Information Section
+// /////////////
+
+#informationSection{
+  background: white;
+  .header{
+    &__banner{
+      width: 100%;
+      height: auto;
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+    &__search{
+      display: none;
+    }
+  }
+  h1{
+    font-size: 35px;
+    padding: 0;
+    padding-left: 15px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  iframe{
+  width: 100%;
+  height: 350px !important;
+  display: block;
+  }
+  p{
+    line-height: 1.3em;
+    margin: 50px 0;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .row{
+    .row__img{
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      img{
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .row:last-child{
+    .row__img:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
+
 
 // /////////
 // End Of Phone
